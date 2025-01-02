@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - TamilCloudbee</title>
+    <style>
+        body {
+            background-color: #800020; /* Burgundy color */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #800020; /* Burgundy color */
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-field:focus {
+            border-color: #800020; /* Burgundy color */
+            outline: none;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #800020; /* Burgundy color */
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: #600016; /* Darker Burgundy on hover */
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .forgot-password {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #800020;
+        }
+
+        .forgot-password a {
+            text-decoration: none;
+            color: #800020;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        
+        <!-- Login Form -->
+        <form id="loginForm" onsubmit="return validateForm()">
+            <input type="text" id="username" class="input-field" placeholder="Username" required><br>
+            <input type="password" id="password" class="input-field" placeholder="Password" required><br>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+
+        <!-- Error message -->
+        <div id="errorMessage" class="error-message"></div>
+        
+        <!-- Forgot Password Link -->
+        <div class="forgot-password">
+            <a href="#">Forgot your password?</a>
+        </div>
+    </div>
+
+    <script>
+        // Basic form validation
+        function validateForm() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("errorMessage");
+
+            if (username == "" || password == "") {
+                errorMessage.innerText = "Both fields are required.";
+                return false; // Prevent form submission
+            }
+
+            // For the sake of this example, validate using hardcoded username and password
+            if (username === "admin" && password === "password123") {
+                window.location.href = "dashboard.html"; // Redirect to the admin dashboard
+                return true; // Allow form submission
+            } else {
+                errorMessage.innerText = "Invalid username or password.";
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Course Enquiry - TamilCloudbee</title>
+    <style>
+        body {
+            background-color: #800020; /* Burgundy color */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .enquiry-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #800020; /* Burgundy color */
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input-field:focus {
+            border-color: #800020; /* Burgundy color */
+            outline: none;
+        }
+
+        .select-course {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .query-area {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            height: 100px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: none;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #800020; /* Burgundy color */
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #600016; /* Darker Burgundy on hover */
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="enquiry-container">
+        <h2>Student Course Enquiry</h2>
+        
+        <!-- Enquiry Form -->
+        <form id="enquiryForm" onsubmit="return validateForm()">
+            <input type="text" id="studentName" class="input-field" placeholder="Enter your name" required><br>
+
+            <label for="course">Choose a course:</label>
+            <select id="course" class="select-course" required>
+                <option value="">Select a course</option>
+                <option value="Programming - Python">Programming - Python</option>
+                <option value="Java Development">Java Development</option>
+                <option value="C# Programming">C# Programming</option>
+                <option value="Ruby Programming">Ruby Programming</option>
+                <option value="Scala Programming">Scala Programming</option>
+                <option value="DevOps">DevOps</option>
+                <option value="Ansible">Ansible</option>
+                <option value="Terraform">Terraform</option>
+                <option value="Linux Administration">Linux Administration</option>
+                <option value="iOS Development">iOS Development</option>
+            </select><br>
+
+            <input type="email" id="email" class="input-field" placeholder="Enter your email" required><br>
+            <input type="tel" id="mobile" class="input-field" placeholder="Enter your mobile number" required><br>
+
+            <textarea id="query" class="query-area" placeholder="Enter your query here" required></textarea><br>
+
+            <button type="submit" class="submit-button">Submit Enquiry</button>
+        </form>
+
+        <!-- Error message -->
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+
+    <script>
+        // Basic form validation
+        function validateForm() {
+            var studentName = document.getElementById("studentName").value;
+            var course = document.getElementById("course").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var query = document.getElementById("query").value;
+            var errorMessage = document.getElementById("errorMessage");
+
+            // Check if all fields are filled out
+            if (studentName == "" || course == "" || email == "" || mobile == "" || query == "") {
+                errorMessage.innerText = "All fields are required.";
+                return false; // Prevent form submission
+            }
+
+            // You can implement additional validation here (e.g., regex for email or phone)
+            
+            // For the sake of this example, we'll assume the form is valid after checking the required fields
+            alert("Thank you for your enquiry, " + studentName + "! We will contact you shortly.");
+            return true; // Allow form submission
+        }
+    </script>
+</body>
+</html>
+
